@@ -3,14 +3,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Assignment from "./Assignment.jsx"
-import { ColorProvider } from './ColorContext.jsx'
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import ReactDOM from "react-dom"
 
 function App() {
   return (
     <>
-     <ColorProvider>
      <Assignment/>
-     </ColorProvider>
     </>
   )
 }
