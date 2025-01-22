@@ -9,8 +9,14 @@ function AssignmentReact()
     
     function handleclick()
     {
-        setcontainer(num);
-        setnum(0);
+        if(num >= 0 && num <= 6)
+        {
+            setcontainer(num);
+        }
+        else
+        {
+            setcontainer(-1);
+        }
     }
     function handlechange(eve)
     {

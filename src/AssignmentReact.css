@@ -1,13 +1,15 @@
 .container{
-    height: 250px;
+    height: auto;
     width: 700px;
+    min-height: 400px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
     border: 5px solid black;
-    justify-content: center;
+    justify-items: center;
+    align-items: center;
 }
-.btn img{
+img{
     height: 5em;
     margin: 5px;
     width: 5em;

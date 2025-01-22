@@ -6,18 +6,46 @@ import three from './assets/three.png'
 import two from './assets/two.png'
 import one from './assets/one.png'
 import sixth from './assets/sixth.png'
+import { jsx } from 'react/jsx-runtime'
 
 let images = [one,two,three,fourth,fifth,sixth]
+
+
+function findpairs(num)
+{
+    let pairs = []
+    for(let i = 1; i < num; i++)
+    {
+        for(let j = 1; j < num; j++)
+        {
+            if(i+j == num)
+            {
+                pairs.push([i,j]);
+            }
+        }
+    }
+    return pairs;
+}
 function addelement(num)
 {
-    if(+num > 6 || num < 0)
+    let pairs = findpairs(num);
+    if(+num == -1)
     {
         num = 0;
     }
-    return [...Array(+num)].map((ele,index)=>{
-        return (<button key = {index} className = {`btn btn-${index}`}><img src = {images[index]}></img></button>)
-    })
+    
+    let elements = []
+    for(let i = 0; i < pairs.length; i++)
+    {
+        elements.push(pairs[i].map((img_idx,idx)=>{
+            console.log(img_idx);
+            return (<img src = {images[img_idx-1]} key = {idx} />)
+        }));
+    }
+    return elements
 }
+
+
 function Day11(props)
 {
     console.log("ans = ",props.num_of_childs);
