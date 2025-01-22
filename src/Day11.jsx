@@ -13,25 +13,24 @@ let images = [one,two,three,fourth,fifth,sixth]
 
 function Day11(props)
 {
-    const [newarr,setArr] = useState([]);
+   const [newarr,setArr] = useState([]);
 
     useEffect(()=>{
-    for(let i = 0; i < props.num_of_childs; i++)
-    {
-        console.log("hiii")
-        setTimeout(()=>{
-            console.log("num=",i);
-            console.log("ele =",images[i]);
-            setArr((prev)=> [...prev,images[i]]);
-        },i*1000);
-    }
-   },[])
+       setArr([]);
+       let time = 2000;
+       for(let i = 0; i < props.num_of_childs; i++)
+            {
+                setTimeout(()=>{
+                    setArr((prev)=> [...prev,images[i]]);
+                },time += 1000);
+            }
+    },[props.num_of_childs]);
 
     return(
         <div className="container">
-        
-        {newarr.map((img,indx)=>{
-            <img key = {indx} src = {img} alt = {indx}/>
+        <div className='loader'>{props.show && <Loader className = "loader"/>}</div>
+        {!props.show && newarr.map((img,indx)=>{
+            return <img key = {indx} src = {newarr[indx]} alt = {indx}/>
         })}
         </div>
     )
