@@ -1,37 +1,108 @@
-import { createContext, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Assignment from "./Assignment.jsx"
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import ReactDOM from "react-dom"
-import {ColorProvider} from "./ColorContext.jsx"
-import Counter from './Counter.jsx'
-import Form from './Form.jsx'
-import Problem1 from './Problem1SetTimeOut.jsx'
-import WindowHook from './WindowHook.jsx'
-import MountedHook from './MountedHook.jsx'
-import RefHook from './RefHook.jsx'
 function App() {
-  let {w_size,h_size} = WindowHook();
-  let {ismount} = MountedHook();
-  console.log(ismount);
-  let {ref,size} = RefHook();
+  function handlechange()
+  {
+    let id;
+    function innerfn(event)
+    {
+      clearTimeout(id);
+      id = setTimeout(()=>{
+        console.log(event.target.value);
+      },1000);
+    }
+    return innerfn;
+  }
+  
+
+  function handleclick()
+  {
+    let id,id2;
+    let count = 0;
+    function innerfn(event)
+    {
+      if(!id)
+      {
+        id2 = setInterval(()=>{
+          let time = new Date();
+          count++;
+          console.log("count:",count," Time = ",time);
+        },3000);
+      }
+      clearTimeout(id);
+      id = setTimeout(()=>{
+        let time = new Date();
+        console.log(count," Time = ",time);
+        count = 0;
+        clearTimeout(id2);
+        id = undefined;
+      },1000);
+    }
+    return innerfn;
+  }
   return (
     <>
-    <ColorProvider>
-    <div>
-        <h1>Screen Size = {w_size*h_size}</h1>
-        <h2>Height = {h_size}</h2> 
-        <h2>Width = {w_size}</h2>
-        {ismount && <h3>Hi</h3>}
-        <div ref ={ref}>This is to show RefHook {size}</div>
-    </div>
-    </ColorProvider>
+   <input type="text" placeholder='Type Something' id = "pass" onChange={handlechange()}/>
+   <button onClick={handleclick()}>hello</button>
     </>
   )
 }
-
 export default App
+//USING KEYSTROKES:
+// useEffect(()=>{
+//   let timer = 1000;
+//   let id;
+//   function handlepress()
+//   {
+//     clearTimeout(id);
+//   }
+//   function handleup(event)
+//   {
+//     clearTimeout(id);
+//     id = setTimeout(()=>{
+//       console.log(event.target.value);
+//     },timer);
+//   }
+//   let ele = document.getElementById("pass");
+//   ele.addEventListener('keyup',handleup);
+//   ele.addEventListener('keypress',handlepress);
+
+//   return (()=> clearTimeout(id));
+// },[])
+
+
+//USING HOOKS:
+// let [value,setValue] = useState('');
+//   let ref = useRef(null)
+
+//   function handlechange(event)
+//   {
+//     setValue(event.target.value);
+    
+//   }
+//   useEffect(()=>{
+//     setTimeout(()=>{
+     
+//       if(ref.current.value == value)
+//       {
+//         console.log(value);
+//       }
+//     },1000);
+//   },[value])
+
+
+//USING MY LOGIC WITH SETTIMEOUT
+// let id;
+// let value = '';
+// function handlechange(event)
+// {
+//   clearTimeout(id);
+//   setTimeout(()=>{
+//      value = event.target.value;
+//   },500);
+//   id = setTimeout(()=>{
+//     if(value == event.target.value)
+//     {
+//       console.log(value);
+//     }
+//   },1000);
+// }
