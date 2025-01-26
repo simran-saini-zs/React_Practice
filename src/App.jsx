@@ -1,37 +1,118 @@
-import { createContext, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Assignment from "./Assignment.jsx"
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import ReactDOM from "react-dom"
-import {ColorProvider} from "./ColorContext.jsx"
-import Counter from './Counter.jsx'
-import Form from './Form.jsx'
-import Problem1 from './Problem1SetTimeOut.jsx'
-import WindowHook from './WindowHook.jsx'
-import MountedHook from './MountedHook.jsx'
-import RefHook from './RefHook.jsx'
+import "./App.css";
+import { useState, useEffect, useRef } from "react";
 function App() {
-  let {w_size,h_size} = WindowHook();
-  let {ismount} = MountedHook();
-  console.log(ismount);
-  let {ref,size} = RefHook();
+  let alignments = [
+    "left",
+    "left",
+    "right",
+    "right",
+    "sidebar",
+    "bottom",
+    "top",
+    "top",
+    "bottom",
+  ];
+
+  let [show, setshow] = useState(false);
+  console.log(show);
   return (
     <>
-    <ColorProvider>
-    <div>
-        <h1>Screen Size = {w_size*h_size}</h1>
-        <h2>Height = {h_size}</h2> 
-        <h2>Width = {w_size}</h2>
-        {ismount && <h3>Hi</h3>}
-        <div ref ={ref}>This is to show RefHook {size}</div>
-    </div>
-    </ColorProvider>
+      <div className="outer-div">
+        <main className="main">
+          {Array.from({ length: 9 }).map((_, i) => (
+            <div key={i} className="card">
+              {i % 2 === 0 ? (
+                <Button alignment={alignments[i]} setshow={setshow} />
+              ) : (
+                <Hover alignment={alignments[i]} />
+              )}
+            </div>
+          ))}
+        </main>
+        {show && (
+          <div className="sidebar">
+            <div className="side-content">Sidebar</div>
+          </div>
+        )}
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
+const Tooltip = ({ alignment, text, children, ref, setshow }) => {
+  function getclassname(align) {
+    switch (align) {
+      case "left":
+        return "left";
+      case "right":
+        return "right";
+      case "top":
+        return "top";
+      case "bottom":
+        return "bottom";
+      case "sidebar":
+        return "sidebar";
+    }
+  }
+
+  let [visible, setvisible] = useState(false);
+
+  function handleevent(event) {
+    setvisible((prev) => !prev);
+  }
+  useEffect(() => {
+    if (ref) {
+      window.addEventListener("click", (event) => {
+        if (!(ref.current == event.target)) {
+          if (getclassname(alignment) == "sidebar") {
+            setshow(false);
+          } else {
+            setvisible(false);
+          }
+        }
+      });
+    }
+  }, []);
+  return (
+    <>
+      <div
+        onClick={
+          children.type == "button"
+            ? children.props.children[1] == "sidebar"
+              ? () => {
+                  setshow((prev) => !prev);
+                }
+              : handleevent
+            : () => {}
+        }
+        onMouseEnter={children.type == "button" ? () => {} : handleevent}
+        onMouseLeave={children.type == "button" ? () => {} : handleevent}
+        className="outer-cont"
+      >
+        {children}
+        {visible && <div className={getclassname(alignment)}>{text}</div>}
+      </div>
+    </>
+  );
+};
+
+const Button = ({ alignment, setshow }) => {
+  let ref = useRef(null);
+  let text = "Hi everyone!";
+  return (
+    <Tooltip alignment={alignment} text={text} ref={ref} setshow={setshow}>
+      <button ref={ref}>Click me {alignment}</button>
+    </Tooltip>
+  );
+};
+
+const Hover = ({ alignment }) => {
+  let text = "Hi everyone!";
+  return (
+    <Tooltip alignment={alignment} text={text}>
+      <span>Hover for {alignment}</span>
+    </Tooltip>
+  );
+};
