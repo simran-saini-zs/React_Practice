@@ -1,5 +1,7 @@
 
 import './App.css'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
 import { createContext,useState } from 'react'
 import Component1 from './Component1'
 import Component2 from './Component2'
@@ -14,7 +16,7 @@ import Modal from './modal.jsx'
 import { useState } from 'react'
 import Accordion from './Accordion.jsx'
 import AssignmentReact from './AssignmentReact.jsx'
-
+import Example from './Example.jsx'
 
 function App() {
   
@@ -79,8 +81,13 @@ function App() {
      
      
      
-//DICES PART 2:
+//DICES PART 2 and 3:
 //       <AssignmentReact/>
+
+//useCallback:
+//        <div>
+//        <Example/>
+//     </div>
     </ThemeContext.Provider>
    </div>
    </div>
