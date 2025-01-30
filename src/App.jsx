@@ -5,6 +5,7 @@ import Component2 from './Component2'
 import Component3 from './Component3'
 import Component4 from './Component4'
 import ThemeContext from './ThemeContext'
+import SideBar from './SideBar'
 import './Component.css'
 function App() {
   let [theme,setTheme] = useState('black');
@@ -23,11 +24,12 @@ function App() {
       <Component2/>
       <Component3/>
       <Component4/>
+//        <SideBar /> SIDEBAR AND TOOLTIP
+     
     </ThemeContext.Provider>
    </div>
    </div>
     </>
   )
 }
-
 export default App
