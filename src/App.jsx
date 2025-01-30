@@ -9,10 +9,11 @@ import ThemeContext from './ThemeContext'
 import SideBar from './SideBar'
 import './Component.css'
 import './modal.css'
+import './index.css'
 import Modal from './modal.jsx'
 import { useState } from 'react'
 import Accordion from './Accordion.jsx'
-
+import AssignmentReact from './AssignmentReact.jsx'
 
 
 function App() {
@@ -75,6 +76,11 @@ function App() {
 //           );
 //         })}
 //       </div>
+     
+     
+     
+//DICES PART 2:
+//       <AssignmentReact/>
     </ThemeContext.Provider>
    </div>
    </div>
