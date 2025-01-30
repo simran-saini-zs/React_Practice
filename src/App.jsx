@@ -1,4 +1,5 @@
 
+
 import './App.css'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -20,7 +21,7 @@ import Example from './Example.jsx'
 import ReactDOM from "react-dom"
 import {ColorProvider} from "./ColorContext.jsx"
 import Test from "./react-test.jsx"
-
+import Debouncing from './Debouncing'
 
 function App() {
   
@@ -100,6 +101,10 @@ function App() {
 //      <ColorProvider>
 //     <Test source = {reactLogo} title = {title} desc = {desc}/>
 //     </ColorProvider>
+     
+     
+//DEBOUNCING:
+//      <Debouncing/>
     </ThemeContext.Provider>
    </div>
    </div>
