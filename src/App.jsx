@@ -11,6 +11,10 @@ import './Component.css'
 import './modal.css'
 import Modal from './modal.jsx'
 import { useState } from 'react'
+import Accordion from './Accordion.jsx'
+
+
+
 function App() {
   
   //MODAL
@@ -19,6 +23,16 @@ function App() {
 //   {
 //     setShow((prev)=>!prev);
 //   }
+  
+  
+  
+  //ACCORDION:
+//    let arr = [
+//     { heading: "HTML", content: "abc" },
+//     { heading: "CSS", content: "abdfkdfdfdfjc" },
+//     { heading: "JS", content: "ab45555c" },
+//   ];
+  
   
   
   let [theme,setTheme] = useState('black');
@@ -37,20 +51,34 @@ function App() {
       <Component2/>
       <Component3/>
       <Component4/>
-//SIDEBAR AND TOOLTIP
+//SIDEBAR AND TOOLTIP:
 //        <SideBar /> 
      
      
-//MODAL
+//MODAL:
 //     <div className= "mainDiv">
 //     <button onClick = {handleclick} className='btn'>Show Content</button>
 //     {show && <Modal handleclick = {handleclick} className = 'modal'/>}
 //     </div>
      
+     
+     
+//ACCORDION:
+//   <div className="container">
+//         {arr.map((ele, idx) => {
+//           return (
+//             <Accordion
+//               key={idx}
+//               heading={ele["heading"]}
+//               content={ele["content"]}
+//             />
+//           );
+//         })}
+//       </div>
     </ThemeContext.Provider>
    </div>
    </div>
     </>
-  )
+  );
 }
 export default App

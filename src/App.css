@@ -1,3 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.accordion-icon {
+  border: solid currentcolor;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  height: 8px;
+  pointer-events: none;
+  transform: translateY(-2px) rotate(45deg);
+  width: 8px;
+}
+
+.accordion-icon-rotated {
+  transform: translateY(2px) rotate(-135deg);
+}
+.container,
+.content {
+  width: 300px;
+  border: 1px solid black;
+}
+.content {
+  background-color: rgb(222, 182, 136);
+}
+.heading {
+  background-color: bisque;
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
