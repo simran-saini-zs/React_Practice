@@ -1,3 +1,9 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
 * {
   padding: 0;
   margin: 0;
@@ -33,6 +39,8 @@ button {
   color: var(--color-blue);
 }
 
+.read-the-docs {
+  color: #888;
 span {
   background-color: var(--color-purple);
   color: var(--color-yellow);

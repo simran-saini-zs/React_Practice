@@ -1,3 +1,4 @@
+
 import './App.css'
 import { createContext,useState } from 'react'
 import Component1 from './Component1'
@@ -7,7 +8,19 @@ import Component4 from './Component4'
 import ThemeContext from './ThemeContext'
 import SideBar from './SideBar'
 import './Component.css'
+import './modal.css'
+import Modal from './modal.jsx'
+import { useState } from 'react'
 function App() {
+  
+  //MODAL
+//    let [show,setShow] = useState(false);
+//   function handleclick()
+//   {
+//     setShow((prev)=>!prev);
+//   }
+  
+  
   let [theme,setTheme] = useState('black');
   function handleTheme()
   {
@@ -24,7 +37,15 @@ function App() {
       <Component2/>
       <Component3/>
       <Component4/>
-//        <SideBar /> SIDEBAR AND TOOLTIP
+//SIDEBAR AND TOOLTIP
+//        <SideBar /> 
+     
+     
+//MODAL
+//     <div className= "mainDiv">
+//     <button onClick = {handleclick} className='btn'>Show Content</button>
+//     {show && <Modal handleclick = {handleclick} className = 'modal'/>}
+//     </div>
      
     </ThemeContext.Provider>
    </div>
