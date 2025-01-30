@@ -12,6 +12,7 @@ function AssignmentReact()
     
     function handleclick()
     {
+
         if(num <=6 && num >= 0)
         {
             setcontainer(num);
@@ -21,6 +22,8 @@ function AssignmentReact()
         {
             setcontainer(-1);
         }
+
+//FOR PART 3 COMMENT OUT THIS SETTIMEOUT HERE:
         setTimeout(()=>{
             setcontent(false);
           },2000)
