@@ -1,0 +1,32 @@
+.Container
+{
+   display: flex;
+   gap: 10px;
+   border: 2px solid black;
+   justify-content: center;
+   align-items: center;
+}
+.Container img{
+    height: 200px;
+    width: 200px;
+    border: 2px solid black;
+    margin: 20px;
+}
+.details,.details h1, .des{
+    border: 2px solid black;
+    margin: 20px;
+}
+.details{
+    height: 3fr;
+    width: 3fr;
+}
+.des {
+    padding: 10px;
+    text-align: left;
+}
+
+@media  (max-width: 750px){
+    .Container{
+        flex-direction: column;
+    }
+}
