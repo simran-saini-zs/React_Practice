@@ -28,3 +28,117 @@
 .heading {
   background-color: bisque;
 }
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-blue: #4635b1;
+  --color-purple: #b771e5;
+  --color-green: #aeea94;
+  --color-yellow: #fffbca;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  background: var(--color-purple);
+  height: 100vh;
+  width: 100vw;
+  gap: 5px;
+  z-index: 2;
+}
+
+.card {
+  background-color: var(--color-yellow);
+  display: grid;
+  place-items: center;
+}
+
+button {
+  background-color: var(--color-green);
+  color: var(--color-blue);
+}
+
+.read-the-docs {
+  color: #888;
+span {
+  background-color: var(--color-purple);
+  color: var(--color-yellow);
+  padding: 4px 8px;
+  border-radius: 12px;
+  cursor: default;
+}
+.outer-cont {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Div-div {
+  height: 100%;
+  width: 100%;
+}
+.top {
+  background-color: rgba(99, 99, 45, 0.5);
+  position: absolute;
+  top: -40px;
+  border-radius: 5px;
+  border: 2px solid rgba(6, 6, 6, 0.5);
+  padding: 2px;
+}
+.bottom {
+  background-color: rgba(99, 99, 45, 0.5);
+  position: absolute;
+  bottom: -40px;
+  border-radius: 5px;
+  border: 2px solid rgba(6, 6, 6, 0.5);
+  padding: 2px;
+}
+.left {
+  background-color: rgba(99, 99, 45, 0.5);
+  position: absolute;
+  left: -100px;
+  border-radius: 5px;
+  border: 2px solid rgba(6, 6, 6, 0.5);
+  padding: 2px;
+}
+.right {
+  background-color: rgba(99, 99, 45, 0.5);
+  position: absolute;
+  right: -100px;
+  border-radius: 5px;
+  border: 2px solid rgba(6, 6, 6, 0.5);
+  padding: 2px;
+}
+.sidebar {
+  background-color: rgb(79, 76, 76, 0.5);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.outer-cont {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.side-content {
+  height: 100vh;
+  width: 500px;
+  background-color: bisque;
+  color: black;
+}
