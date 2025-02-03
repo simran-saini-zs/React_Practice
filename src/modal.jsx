@@ -1,8 +1,8 @@
 // import './modal.css'
-function Modal({ handleclick }) {
+function Modal({ reference,handleclick }) {
     return (
         <div className='overlay'>
-            <div className='container'>
+            <div ref = {reference}className='container'>
                 <h1>Title</h1>
                 <span onClick={(handleclick)}>❌</span>
                 <p>description: Paragraphs are the building blocks of papers.
